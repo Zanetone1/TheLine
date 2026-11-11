@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Designers">
+    <h1 class="mark">The Line</h1>
+    <div class="pills" id="pills" role="tablist"></div>
+    <div class="nav-actions">
+      <button class="pill nl-nav-btn" type="button" id="nlNavBtn" aria-haspopup="dialog">Newsletter</button>
+      <button class="pill cmp-nav-btn" type="button" id="cmpNavBtn" aria-pressed="false">Compare</button>
+    </div>
+  </nav>
+</header>
+<main class="hero">
+<div class="toolbar"><span>Info</span><div class="pills" role="group" aria-label="Info position"><button class="pill" type="button" data-v="below" aria-pressed="true">Below</button><button class="pill" type="button" data-v="beside" aria-pressed="false">Beside</button></div></div>
+<div class="layout" id="layout" data-info="below">
+
+  <!-- Normal Single Card View -->
+  <div class="card" id="card">
+    <div class="stage">
+      <div class="framewrap">
+      <div class="frame" id="frame" aria-label="Runway look. Swipe or use the arrows for other runways.">
+        <div class="look" id="look">
+        <img id="img" alt="" hidden draggable="false">
+        <svg class="guide" id="guide" viewBox="0 0 100 125" aria-hidden="true">
+          <circle data-k="head" cx="38" cy="15" r="7"/>
+          <g data-k="torso"><rect x="28" y="24" width="20" height="32" rx="3"/><rect x="22" y="25" width="5" height="28" rx="2.5"/><rect x="49" y="25" width="5" height="28" rx="2.5"/></g>
+          <g data-k="legs"><rect x="29" y="58" width="9" height="50" rx="2"/><rect x="38" y="58" width="9" height="50" rx="2"/></g>
+          <g data-k="shoes"><rect x="27" y="108" width="12" height="6" rx="3"/><rect x="38" y="108" width="13" height="6" rx="3"/></g>
+          <line x1="14" y1="117" x2="62" y2="117"/>
+        </svg>
+        <div id="pins"></div>
+        </div>
+      </div>
+      <div class="views" id="views" hidden></div>
+      <p class="show" id="show"></p>
+      <div class="looks"><button class="step" type="button" data-s="-1" aria-label="Previous runway"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2 4 7l5 5"/></svg></button><div class="dots" id="dots" role="tablist" aria-label="Runway looks"></div><button class="step" type="button" data-s="1" aria-label="Next runway"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 2l5 5-5 5"/></svg></button></div>
+      </div>
+      <aside class="detail" id="detail" data-open="false" aria-live="polite" aria-hidden="true"><div class="detail-in" id="detailIn"></div></aside>
+    </div>
+  </div>
+
+  <!-- Compare: two cards side by side -->
+  <div class="cmp-stage-grid" id="cmpDualCard" hidden>
+  <div class="cmp-card-unit" id="paneA">
+    <div class="cmp-bar">
+      <label for="selectA">Look A</label>
+      <select id="selectA"></select>
+    </div>
+    <div class="card cmp-card">
+      <div class="stage">
+        <div class="framewrap">
+          <div class="frame">
+            <div class="look">
+              <img id="imgA" alt="" draggable="false">
+              <div id="pinsA"></div>
+            </div>
+          </div>
+          <div class="views" id="viewsA" hidden></div>
+          <p class="show" id="showA"></p>
+          <div class="looks">
+            <button class="step" type="button" id="prevA" aria-label="Previous look"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2 4 7l5 5"/></svg></button>
+            <div class="dots" id="dotsA" role="tablist"></div>
+            <button class="step" type="button" id="nextA" aria-label="Next look"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side-by-Side Compare Unit Right (Card B) -->
+  <div class="cmp-card-unit" id="paneB">
+    <div class="cmp-bar">
+      <label for="selectB">Look B</label>
+      <select id="selectB"></select>
+    </div>
+    <div class="card cmp-card">
+      <div class="stage">
+        <div class="framewrap">
+          <div class="frame">
+            <div class="look">
+              <img id="imgB" alt="" draggable="false">
+              <div id="pinsB"></div>
+            </div>
+          </div>
+          <div class="views" id="viewsB" hidden></div>
+          <p class="show" id="showB"></p>
+          <div class="looks">
+            <button class="step" type="button" id="prevB" aria-label="Previous look"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2 4 7l5 5"/></svg></button>
+            <div class="dots" id="dotsB" role="tablist"></div>
+            <button class="step" type="button" id="nextB" aria-label="Next look"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2l5 5-5 5"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <section class="sheet" id="sheet" aria-live="polite"></section>
+</div>
+</main>
+
+<script src="script.js?v=4"></script>
+</body>
+</html>
